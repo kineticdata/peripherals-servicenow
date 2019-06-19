@@ -1,0 +1,47 @@
+== ServiceNow Group Retrieve V1
+    This handler allows you to retrieve a user group from Service Now
+
+=== Parameters
+    [Retrieve By]
+        The field that contains a unique identifier used to retrieve the desired
+        user group.
+    [Value]
+        The value of the unique identifier used to retrieve the desired user
+        group.
+
+=== Results
+This handler returns every field as a result relating to a single user group in XML format.
+
+[active]
+[cost_center]
+[default_assignee]
+[description]
+[email]
+[exclude_manager]
+[include_members]
+[manager]
+[name]
+[parent]
+[roles]
+[source]
+[sys_created_by]
+[sys_created_on]
+[sys_id]
+[sys_mod_count]
+[sys_updated_by]
+[sys_updated_on]
+[type]
+
+==== Sample Configuration
+    Retrieve By:       Name
+    Value:             Sample Group
+
+=== Detailed Description
+    This handler allows you to retrieve a user group from service now. It will
+    use a field that has a unique identifier (sys_id, name, or email) and its
+    value to retrieve a unique result. If the result set is empty or bigger than
+    one record an error will be thrown.
+
+=== Info
+    The server field is for your instance of service now. It is whatever
+    subdomain you belong to i.e. server.service-now.com

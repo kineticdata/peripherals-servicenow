@@ -1,0 +1,31 @@
+== ServiceNow Object Create V1
+  Generically creates an object for a ServiceNow table when given a table name
+  and a JSON body of the object that should be created.
+
+=== Parameters
+  [Error Handling]
+    Determine what to return if an error is encountered.
+  [Table]
+    The name of the table to create the object in (ie. change_request,incident,
+    task,etc).
+  [JSON Body]
+    The JSON body of the object to create.
+
+=== Results
+  [Handler Error Message]
+    Error message if an error was encountered and Error Handling is set to "Error Message".
+  [Id]
+    The id of the newly created object.
+
+==== Sample Configuration
+  Error Handling:                 Raise Error
+  Table:                          incident
+  JSON Body:                      {"category": "Software", "short_description": "Test Incident"}
+
+=== Detailed Description
+  This handler allows you to generically create a new object in a ServiceNow
+  table by passing the fields/values of the object in a JSON body. Using the
+  ServiceNow REST API and basic authentication, a URL and a POST body are
+  are created using the inputted parameters which is then sent to ServiceNow. If
+  the REST call is successful, the Id of the created object will be returned
+  from the handler results.

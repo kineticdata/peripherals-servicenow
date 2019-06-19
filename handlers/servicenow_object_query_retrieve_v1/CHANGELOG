@@ -1,0 +1,13 @@
+ServiceNow Object Query Retrieve V1 (2019-31-1)
+* Modified the label to a new name.
+
+ServiceNow Object Query Retrieve V1 (2019-25-1)
+* Moved from unpublished to published
+* Added error handling
+
+ServiceNow Object Query Retrieve V1 (2019-24-1)
+* Added parameters to the handler to expose more features
+* of the serviceNow API endpoint.
+
+ServiceNow Object Query Retrieve V1 (2018-15-11)
+* Initial version.  See README for details.

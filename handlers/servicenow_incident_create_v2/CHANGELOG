@@ -1,0 +1,5 @@
+ServiceNow Incident Create V2 (2015-07-22)
+* Moving from the Service Now JSON Web Service (no longer supported) to the REST API.
+
+ServiceNow Incident Create v1 (2013-07-26)
+* Initial version.  See README for details.

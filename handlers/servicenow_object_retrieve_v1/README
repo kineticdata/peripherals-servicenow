@@ -1,0 +1,30 @@
+== ServiceNow Object Retrieve
+  Generically retrieves an object from a ServiceNow table when given a table
+  name and an id
+
+=== Parameters
+  [Error Handling]
+    Determine what to return if an error is encountered.
+  [Table]
+    The name of the table to retrieve info from (ie. change_request,incident,
+    task,etc).
+  [Id]
+    The id of the object to retrieve.
+
+=== Results
+  [Handler Error Message]
+    Error message if an error was encountered and Error Handling is set to "Error Message".
+  [Object JSON]
+    A JSON representation of the returned ServiceNow object
+
+==== Sample Configuration
+  Error Handling:                 Raise Error
+  Table:                          incident
+  Id:                             85071a1347c12200e0ef563dbb9a71c1
+
+=== Detailed Description
+This handler allows the generic retrieval of a ServiceNow object when given a
+table and an id. Using the ServiceNow REST API and basic authentication, a URL
+is built up to retrieve a record from a table by its sys_id. If that REST call
+successfully finds the record attached to that Id, a JSON representation of the
+object will be returned as handler results.

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<taskDefinition id="servicenow_incident_search" name="ServiceNow Incident Search" schema_version="1.0" version="1">
+	<author>support@kineticdata.com</author>
+	<description>Search for a Service Now incident.</description>
+	<helpurl></helpurl>
+	<visible>true</visible>
+	<deferrable>false</deferrable>
+	<parameters>
+		<parameter id="query_xml" label="Query XML" required="false" tooltip="The query string for what incidents should be returned in xml format." />
+	</parameters>
+	<handler name="servicenow_incident_search" version="1">
+		<infos>
+			<info name="username">&lt;%= @info['username'] %&gt;</info>
+			<info name="password">&lt;%= @info['password'] %&gt;</info>
+			<info name="instance_url">&lt;%= @info['instance_url'] %&gt;</info>
+		</infos>
+		<parameters>
+			<parameter name="query_xml">&lt;%= @parameters['query_xml'] %&gt;</parameter>
+		</parameters>
+	</handler>
+	<results format="xml">
+		<result name='XML'/>
+	</results>
+</taskDefinition>

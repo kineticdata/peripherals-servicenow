@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<taskDefinition id="servicenow_user_retrieve" name="ServiceNow User Retrieve"
+	schema_version="1.0" version="2">
+	<author>support@kineticdata.com</author>
+	<description>ServiceNow, retrieve a user id for system user.</description>
+	<helpurl></helpurl>
+	<visible>true</visible>
+	<deferrable>false</deferrable>
+	<parameters>
+		<parameter id="sys_id" label="Sys Id" required="true" tooltip="System ID" />
+	</parameters>
+	<handler name="servicenow_user_retrieve" version="2">
+		<infos>
+			<info name="username">&lt;%= @info['username'] %&gt;</info>
+			<info name="password">&lt;%= @info['password'] %&gt;</info>
+			<info name="server">&lt;%= @info['server'] %&gt;</info>
+      <info name="enable_debug_logging">&lt;%= @info['enable_debug_logging'] %&gt;</info>
+		</infos>
+		<parameters>
+			<parameter name="sys_id">&lt;%= @parameters['sys_id'] %&gt;</parameter>
+		</parameters>
+	</handler>
+	<results format="xml">
+    <result name="accumulated_roles"/>
+		<result name="active"/>
+		<result name="auditor"/>
+		<result name="building"/>
+		<result name="calendar_integration"/>
+		<result name="city"/>
+		<result name="company"/>
+		<result name="cost_center"/>
+		<result name="country"/>
+		<result name="date_format"/>
+		<result name="default_perspective"/>
+		<result name="department"/>
+		<result name="email"/>
+		<result name="employee_number"/>
+		<result name="failed_attempts"/>
+		<result name="first_name"/>
+		<result name="gender"/>
+		<result name="home_phone"/>
+		<result name="introduction"/>
+		<result name="last_login"/>
+		<result name="last_login_time"/>
+		<result name="last_name"/>
+		<result name="ldap_server"/>
+		<result name="location"/>
+		<result name="locked_out"/>
+		<result name="manager"/>
+		<result name="middle_name"/>
+		<result name="mobile_phone"/>
+		<result name="name"/>
+		<result name="notification"/>
+		<result name="password_needs_reset"/>
+		<result name="phone"/>
+		<result name="photo"/>
+		<result name="preferred_language"/>
+		<result name="roles"/>
+		<result name="schedule"/>
+		<result name="source"/>
+		<result name="state"/>
+		<result name="street"/>
+		<result name="sys_class_name"/>
+		<result name="sys_created_by"/>
+		<result name="sys_created_on"/>
+		<result name="sys_domain"/>
+		<result name="sys_id"/>
+		<result name="sys_mod_count"/>
+		<result name="sys_updated_by"/>
+		<result name="sys_updated_on"/>
+		<result name="time_format"/>
+		<result name="time_zone"/>
+		<result name="title"/>
+		<result name="user_name"/>
+		<result name="user_password"/>
+		<result name="vip"/>
+		<result name="zip"/>
+	</results>
+</taskDefinition>

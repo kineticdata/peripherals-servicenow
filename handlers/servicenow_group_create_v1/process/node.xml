@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<taskDefinition id="servicenow_group_create" name="ServiceNow Group Create" schema_version="1.0" version="1">
+	<author>support@kineticdata.com</author>
+	<description>Creates a new Service Now user group.</description>
+	<helpurl></helpurl>
+	<visible>true</visible>
+	<deferrable>false</deferrable>
+	<parameters>
+        <parameter id="name" label="Name" required="true" tooltip="The name of the new user group."/>
+        <parameter id="group_email" label="Group Email" required="false" tooltip="The group email of the new user group." />
+        <parameter id="manager" label="Manager" required="false" tooltip="The manager id of the new user group."/>
+        <parameter id="parent" label="Parent" required="false" tooltip="The parent id of the new user group." />
+        <parameter id="description" label="Description" required="false" tooltip="The description of the new user group."/>
+    </parameters>
+    <handler name="servicenow_group_create" version="1">
+        <infos>
+            <info name="username">&lt;%= @info['username'] %&gt;</info>
+            <info name="password">&lt;%= @info['password'] %&gt;</info>
+            <info name="server">&lt;%= @info['server'] %&gt;</info>
+            <info name="enable_debug_logging">&lt;%= @info['enable_debug_logging'] %&gt;</info>
+        </infos>
+        <parameters>
+            <parameter name="name">&lt;%= @parameters['name'] %&gt;</parameter>
+            <parameter name="group_email">&lt;%= @parameters['group_email'] %&gt;</parameter>
+            <parameter name="manager">&lt;%= @parameters['manager'] %&gt;</parameter>
+            <parameter name="parent">&lt;%= @parameters['parent'] %&gt;</parameter>
+            <parameter name="description">&lt;%= @parameters['description'] %&gt;</parameter>
+        </parameters>
+    </handler>
+    <results format="xml">
+      <result name="sys_id"></result>
+    </results>
+</taskDefinition>

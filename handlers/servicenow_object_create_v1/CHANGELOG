@@ -1,0 +1,8 @@
+ServiceNow Object Create V1 (2019-02-31)
+* Update Readme to add Error Handling.
+
+ServiceNow Object Create V1 (2019-01-31)
+* Added full support for NDNF (never drop never fail).
+
+ServiceNow Object Create V1 (2017-09-14)
+* Initial version.  See README for details.

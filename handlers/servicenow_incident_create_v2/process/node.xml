@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<taskDefinition id="servicenow_incident_create" name="ServiceNow Incident Create" schema_version="1.0" version="2">
+	<author>support@kineticdata.com</author>
+	<description>ServiceNow, create a new incident.</description>
+	<helpurl></helpurl>
+	<visible>true</visible>
+	<deferrable>false</deferrable>
+	<parameters>
+		<parameter id="category" label="Category" required="true" tooltip="Category of the incident to be created" menu="Request,Inquiry,Software,Hardware,Network,Database" />
+		<parameter id="short_description" label="Short Description" required="true" tooltip="The description of the incident to be created." />
+		<parameter id="impact" label="Impact Level" required="true" tooltip="The priority level of the incident to be created." menu="3 - Low,2 - Medium,1 - High" />
+		<parameter id="urgency" label="Urgency Level" required="true" tooltip="The urgency level of the incident to be created." menu="3 - Low,2 - Medium,1 - High" />
+		<parameter id="contact_type" label="Contact Type" required="true" tooltip="Form of reporting the incident" menu="Email,Phone,Self-service,Walk-in">Phone</parameter>
+	    <parameter id="caller_id" label="Caller Id" required="false" tooltip="The id of the caller" />
+	    <parameter id="location" label="Location" required="false" tooltip="Usually the caller's location" />
+		<parameter id="cmdb_ci" label="Configuration Item Id" required="false" tooltip="Configuration Item Id"/>
+		<parameter id="assignment_group" label="Assignment Group Id" required="false" tooltip="The id of a group to assign this incident to" />
+		<parameter id="assigned_to" label="Assigned To Id" required="false" tooltip="The id of a person to assign this to" />
+	</parameters>
+	<handler name="servicenow_incident_create" version="2">
+		<infos>
+			<info name="username">&lt;%= @info['username'] %&gt;</info>
+      <info name="password">&lt;%= @info['password'] %&gt;</info>
+      <info name="server">&lt;%= @info['server'] %&gt;</info>
+      <info name="enable_debug_logging">&lt;%= @info['enable_debug_logging'] %&gt;</info>
+		</infos>
+		<parameters>
+			<parameter name="category">&lt;%= @parameters['category'] %&gt;</parameter>
+			<parameter name="short_description">&lt;%= @parameters['short_description'] %&gt;</parameter>
+			<parameter name="impact">&lt;%= @parameters['impact'] %&gt;</parameter>
+			<parameter name="urgency">&lt;%= @parameters['urgency'] %&gt;</parameter>
+			<parameter name="contact_type">&lt;%= @parameters['contact_type'] %&gt;</parameter>
+			<parameter name="caller_id">&lt;%= @parameters['caller_id'] %&gt;</parameter>
+			<parameter name="location">&lt;%= @parameters['location'] %&gt;</parameter>
+			<parameter name="cmdb_ci">&lt;%= @parameters['cmdb_ci'] %&gt;</parameter>
+			<parameter name="assignment_group">&lt;%= @parameters['assignment_group'] %&gt;</parameter>
+			<parameter name="assigned_to">&lt;%= @parameters['assigned_to'] %&gt;</parameter>
+		</parameters>
+	</handler>
+	<results format="xml">
+        <result name="Incident Number"/>
+        <result name="System Id"/>
+    </results>
+</taskDefinition>

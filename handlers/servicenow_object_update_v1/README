@@ -1,0 +1,32 @@
+== ServiceNow Object Update
+  Generically updates an object in a ServiceNow table when given a table name,
+  a id, and a JSON body containing the parts of the object that should be updated.
+
+=== Parameters
+  [Error Handling]
+    Determine what to return if an error is encountered.
+  [Table]
+    The name of the table to update the object in (ie. change_request,incident,
+    task,etc).
+  [Id]
+    The id of the object to update.
+  [JSON Body]
+    The JSON body containing the fields that should be updated.
+
+=== Results
+  [Handler Error Message]
+    Error message if an error was encountered and Error Handling is set to "Error Message".
+
+==== Sample Configuration
+  Error Handling:                 Raise Error
+  Table:                          incident
+  Id:                             ea45634c4f5103004491b3728110c7ac
+  JSON Body:                      {"short_description": "Changed the description"}
+
+=== Detailed Description
+  This handler allows you to generically update an existing object in a
+  ServiceNow table by passing an id and the fields/values that should be updated
+  on the object in a JSON body. Using the ServiceNow REST API and basic
+  authentication, a URL and a PUT body are created using the inputted parameters
+  which is then sent to ServiceNow. If the REST call is successful and the
+  included id exists, the handler will complete and return an empty result set.

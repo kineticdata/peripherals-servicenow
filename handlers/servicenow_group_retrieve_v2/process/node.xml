@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<taskDefinition id="servicenow_group_retrieve" name="ServiceNow Group Retrieve" schema_version="1.0" version="2">
+    <author>support@kineticdata.com</author>
+    <description>Retrieves a Service Now user group</description>
+    <helpurl></helpurl>
+    <visible>true</visible>
+    <deferrable>false</deferrable>
+    <parameters>
+        <parameter id="sys_id" label="Sys Id" required="true"
+            tooltip="The Sys ID of the unique identifier used to retrieve the desired user group."/>
+    </parameters>
+    <handler name="servicenow_group_retrieve" version="2">
+        <infos>
+            <info name="username">&lt;%= @info['username'] %&gt;</info>
+            <info name="password">&lt;%= @info['password'] %&gt;</info>
+            <info name="server">&lt;%= @info['server'] %&gt;</info>
+            <info name="enable_debug_logging">&lt;%= @info['enable_debug_logging'] %&gt;</info>
+        </infos>
+        <parameters>
+            <parameter name="sys_id">&lt;%= @parameters['sys_id'] %&gt;</parameter>
+        </parameters>
+    </handler>
+    <results format="xml">
+        <result name="active"></result>
+        <result name="cost_center"></result>
+        <result name="default_assignee"></result>
+        <result name="description"></result>
+        <result name="email"></result>
+        <result name="exclude_manager"></result>
+        <result name="include_members"></result>
+        <result name="manager"></result>
+        <result name="name"></result>
+        <result name="parent"></result>
+        <result name="roles"></result>
+        <result name="source"></result>
+        <result name="sys_created_by"></result>
+        <result name="sys_created_on"></result>
+        <result name="sys_id"></result>
+        <result name="sys_mod_count"></result>
+        <result name="sys_updated_by"></result>
+        <result name="sys_updated_on"></result>
+        <result name="type"></result>
+    </results>
+</taskDefinition>

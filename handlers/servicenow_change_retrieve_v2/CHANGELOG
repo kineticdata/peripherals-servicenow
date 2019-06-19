@@ -1,0 +1,6 @@
+ServiceNow Change Retrieve V2 (2017-09-21)
+* Moving from the Service Now JSON Web Service (no longer supported) to the REST API.
+* Changed to only retrieve by sys_id (removed retrieve by query) due to API changes
+
+Servicenow Change Retrieve V1 (2013-07-26)
+* Initial version.  See README for details.

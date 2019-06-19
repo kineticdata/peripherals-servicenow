@@ -1,0 +1,5 @@
+ServiceNow Incident Update V1.1 (2017-09-19)
+* Moving from the Service Now JSON Web Service (no longer supported) to the REST API.
+
+ServiceNow Incident Update V1 (2013-07-26)
+* Initial version.  See README for details.

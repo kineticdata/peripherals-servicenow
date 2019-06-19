@@ -1,0 +1,56 @@
+== ServiceNow User Create
+	This handler allows you to create a user for Service Now
+
+=== Parameters
+	[User Id]
+		The username of the user
+	[First Name]
+		First name of the user
+	[Last Name]
+		Last name of the user
+	[Title]
+		Title of the user
+	[Department Id]
+		The sys_id of the department the user will belong to
+	[Password]
+		The password for the new user
+	[Password Needs Reset]
+		If you would like the user to have to reset their password right away
+	[Locked Out]
+		Lock this user out as you create their account
+	[Active]
+		Set whether the new account is active or not
+	[Date Format]
+		Set the date formatting for the user
+	[Email]
+		Email address of the user
+	[Time Zone]
+		Time zone user belongs to
+	[Business Phone]
+		The main telephone number for this users work
+	[Mobile Phone]
+		The cell phone number of this user
+
+=== Results
+	[Sys Id]
+		The unique system id of the new user is returned
+
+==== Sample Configuration
+	User Id : john.doe
+	First Name : John
+	Last Name : Doe
+	Title : Manager
+	Department Id : 148128sd8f7871899sd98f
+	Password : pass01
+	Password Needs Reset : yes
+	Locked Out : no
+	Active : yes
+	Date Format : yyyy-MM-dd
+	Email : john.doe@example.com
+	Time Zone : US/Central
+	Business Phone : 555-555-5555
+	Mobile Phone : 666-666-6666
+
+=== Detailed Description
+	This handler allows you to create a new user on Service Now. It takes the input parameters and
+	then passes them in a REST call to Service Now to create the user.

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<taskDefinition id="servicenow_change_update" name="ServiceNow Change Update" schema_version="1.0" version="1">
+	<author>support@kineticdata.com</author>
+	<description>This handler allows you to update a change request on Service Now.</description>
+	<helpurl></helpurl>
+	<visible>true</visible>
+	<deferrable>false</deferrable>
+	<parameters>
+		<parameter id="sys_id" label="Change Request Id" required="true" tooltip="sys_id of the change request" />
+		<parameter id="approval" label="Approval" required="false" menu=",Not Requested,Requested,Approved,Rejected" tooltip="Approval level for this change request" />
+		<parameter id="assigned_to" label="Assigned To Id" required="false" tooltip="User sys_id of the person this is assigned to" />
+		<parameter id="assignment_group" label="Assignment Group Id" required="false" tooltip="sys_id of assignment group" />
+		<parameter id="category" label="Category" required="false" tooltip="Category" menu=",Hardware,Software,Business Service,System Software,Applications Software,Network,Telecom,Documentation,Other" />
+		<parameter id="configuration_item" label="Configuration Item Id" required="false" tooltip="The sys_id of the configuration item you wish to relate this change request to" />
+		<parameter id="description" label="Description" required="false" tooltip="Full description of this change request" />
+		<parameter id="impact" label="Impact" required="false" tooltip="The impact level of this change request" menu=",1 - High,2 - Medium,3 - Low">3 - Low</parameter>
+		<parameter id="number" label="Number" required="false" tooltip="Change request number only if you want to specify to certain number" />
+		<parameter id="priority" label="Priority" required="false" tooltip="The priority of this chagne request" menu=",1 - Critical,2 - High,3 - Moderate,4 - Low,5 - Planning">4 - Low</parameter>
+		<parameter id="requested_by" label="Requested By Id" required="false" tooltip="sys_id value of person requesting change" />
+		<parameter id="risk" label="Risk" required="false" tooltip="The risk level of this change request" menu=",Very High,High,Moderate,Low,None">Moderate</parameter>
+		<parameter id="short_description" label="Short Description" required="false" tooltip="Short description of this change request" />
+		<parameter id="type" label="Type" required="false" menu=",Routine,Comprehensive,Emergency" tooltip="Set operation type">Comprehensive</parameter>
+	</parameters>
+	<handler name="servicenow_change_update" version="1">
+		<infos>
+			<info name="username">&lt;%= @info['username'] %&gt;</info>
+			<info name="password">&lt;%= @info['password'] %&gt;</info>
+			<info name="server">&lt;%= @info['server'] %&gt;</info>
+      <info name="enable_debug_logging">&lt;%= @info['enable_debug_logging'] %&gt;</info>
+		</infos>
+		<parameters>
+			<parameter name="sys_id">&lt;%= @parameters['sys_id'] %&gt;</parameter>
+			<parameter name="approval">&lt;%= @parameters['approval'] %&gt;</parameter>
+			<parameter name="assigned_to">&lt;%= @parameters['assigned_to'] %&gt;</parameter>
+			<parameter name="assignment_group">&lt;%= @parameters['assignment_group'] %&gt;</parameter>
+			<parameter name="category">&lt;%= @parameters['category'] %&gt;</parameter>
+			<parameter name="configuration_item">&lt;%= @parameters['configuration_item'] %&gt;</parameter>
+			<parameter name="description">&lt;%= @parameters['description'] %&gt;</parameter>
+			<parameter name="impact">&lt;%= @parameters['impact'] %&gt;</parameter>
+			<parameter name="number">&lt;%= @parameters['number'] %&gt;</parameter>
+			<parameter name="priority">&lt;%= @parameters['priority'] %&gt;</parameter>
+			<parameter name="requested_by">&lt;%= @parameters['requested_by'] %&gt;</parameter>
+			<parameter name="risk">&lt;%= @parameters['risk'] %&gt;</parameter>
+			<parameter name="short_description">&lt;%= @parameters['short_description'] %&gt;</parameter>
+			<parameter name="type">&lt;%= @parameters['type'] %&gt;</parameter>
+		</parameters>
+	</handler>
+	<results format="xml" />
+</taskDefinition>

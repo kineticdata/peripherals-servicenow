@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<results>
+    <result name="active">1</result>
+    <result name="cost_center">null</result>
+    <result name="default_assignee">null</result>
+    <result name="description">CAB approvers</result>
+    <result name="email">null</result>
+    <result name="exclude_manager">0</result>
+    <result name="include_members">0</result>
+    <result name="manager">null</result>
+    <result name="name">CAB Approval</result>
+    <result name="parent">null</result>
+    <result name="roles">null</result>
+    <result name="source">null</result>
+    <result name="sys_created_by">admin</result>
+    <result name="sys_created_on">2011-09-30 16:30:34</result>
+    <result name="sys_id">b85d44954a3623120004689b2d5dd60a</result>
+    <result name="sys_mod_count">0</result>
+    <result name="sys_updated_by">admin</result>
+    <result name="sys_updated_on">2011-09-30 16:30:34</result>
+    <result name="type">null</result>
+</results>

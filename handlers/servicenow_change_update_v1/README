@@ -1,0 +1,54 @@
+== ServiceNow Change Update
+	This handler allows you to update an existing incident for Service Now
+
+=== Parameters
+	[Change Request Id]
+		The unique sys_id of the change request.
+	[Approval]
+		Approval level for this change request
+	[Assignment Group]
+		Id number of the group you wish to assign this incident to
+	[Assigned To]
+		The id number of the person you wish to assign this to
+	[Category]
+		A menu of available categories
+	[Configuration Item Id]
+		The id of the configuration item the incident relates to
+	[Description]
+		Full description of the change request
+	[Impact]
+		The level of severity of the problem.
+	[Number]
+		Change request number only if you want to specify certain number
+	[Priority]
+		Priority level of the change request
+	[Requested By Id]
+		sys_id value of the user who requested the change request
+	[Risk]
+		The risk level of this change request
+	[Short Description]
+		A short description used to identify the incident.
+	[Type]
+		Type of operation required
+=== Results
+	No results are returned for this handler.
+
+==== Sample Configuration
+	Change Request Id : <%=@results['servicenow_change_retrieve_v1']['sys_id']%>
+	Approval : Approved
+	Assigned To Id : <%=@results['servicenow_user_retrieve_v1']['sys_id']%>
+	Assignment Group Id :
+	Category : Software
+	Configuration Item Id :
+	Description : Database write error when updating user.
+	Impact : 2 - Medium
+	Number :
+	Priority :
+	Requested By Id :
+	Risk: Moderate
+	Short Description :
+	Type :
+
+=== Detailed Description
+	This handler allows you to update a change request on Service Now. It takes the input parameters
+	and then passes them in a REST call to Service Now to update the change request.

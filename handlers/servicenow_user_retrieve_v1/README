@@ -1,0 +1,85 @@
+== ServieNow User Retrieve
+	This handler is a utility for retrieving a user from service-now.
+
+=== Parameters
+	[Query Type]
+		The type of data you wish to query by. This is limited to
+			-> Email
+			-> User_Name
+			-> Name
+			-> Sys_Id
+			-> Employee_Number
+		These are the fields likely to be unique.
+	[Query]
+		The string actually queried for the request
+
+=== Results
+This handler returns all info related to a unique sys user.
+
+[accumulated_roles]
+[active]
+[auditor]
+[building]
+[calendar_integration]
+[city]
+[company]
+[cost_center]
+[country]
+[date_format]
+[default_perspective]
+[department]
+[email]
+[employee_number]
+[failed_attempts]
+[first_name]
+[gender]
+[home_phone]
+[introduction]
+[last_login]
+[last_login_time]
+[last_name]
+[ldap_server]
+[location]
+[locked_out]
+[manager]
+[middle_name]
+[mobile_phone]
+[name]
+[notification]
+[password_needs_reset]
+[phone]
+[photo]
+[preferred_language]
+[roles]
+[schedule]
+[source]
+[state]
+[street]
+[sys_class_name]
+[sys_created_by]
+[sys_created_on]
+[sys_domain]
+[sys_id]
+[sys_mod_count]
+[sys_updated_by]
+[sys_updated_on]
+[time_format]
+[time_zone]
+[title]
+[user_name]
+[user_password]
+[vip]
+[zip]
+
+==== Sample Configuration
+	Query Type : User_Name
+	Query : john.doe
+
+=== Detailed Description
+	This handler allows you to retrieve all information related to a user
+	for service-now. This information is useful when providing information
+	to other handlers, especially the sys_id of the user.
+
+=== Info
+	The server field is for your instance of service now. It is whatever
+	subdomain you belong to i.e. server.service-now.com

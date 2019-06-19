@@ -1,0 +1,31 @@
+== ServiceNow Group Create
+    Creates a new Service Now user group.
+
+=== Parameters
+    [Name]
+        The name of the user group to be created.
+    [Group Email]
+        The group email address of the user group to be created.
+    [Manager]
+        The manager id of the user group to be created.
+    [Parent]
+        The parent id of the user group to be created.
+    [Description]
+        The description of the user group to be created.
+
+=== Results
+  [sys_id]
+    Returns the sys_id of the user group that was just created
+
+==== Sample Configuration
+    Name:             Sample Name
+    Group Email:      joe.user@acme.com
+    Manager:          9ww1t13vu6112271007x9v0wxvt69uv0
+    Parent:           287ww6xws9xw198100svs7950v0t1t73
+    Description:      Sample Description
+
+=== Detailed Description
+    This handler allows you to create a new group on Service Now. It takes the
+    input parameters and then passes them in a REST call to Service Now to
+    create the event. If there was an error with creating the user group, this
+    handler will catch and re-throw the error.

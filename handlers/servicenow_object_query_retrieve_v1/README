@@ -1,0 +1,47 @@
+== ServiceNow Object Query Retrieve
+  Generically retrieves an object from a ServiceNow table when given a table
+  name and an id
+
+=== Parameters
+  [Error Handling]
+    Determine what to return if an error is encountered.
+  [Table]
+    The name of the table to retrieve info from (ie. change_request,incident,
+    task,etc).
+  [Query]
+    The query to retrieve objects. Use a '^' to seperate parameters.
+  [Display Value]
+    Return field display values (true), actual values (false), or both (all) (default: false).
+  [Exclude Reference Link]
+    True to exclude Table API links for reference fields (default: false).
+  [Suppress Pagination Header]
+    True to supress pagination header (default: false).
+  [Fields]
+    A comma-separated list of fields to return in the response.
+  [Limit]
+    The maximum number of results returned per page (default: 10,000).
+  [Query Category]
+    Name of the query category (read replica category) to use for queries.
+
+=== Results
+  [Handler Error Message]
+    Error message if an error was encountered and Error Handling is set to "Error Message".
+  [object_json]
+    A JSON representation of the returned ServiceNow object
+
+==== Sample Configuration
+Error Handling:               raise error
+Table:                        incident
+Query:                        state=7^category=hardware
+Display Value:                true   
+Exclude Reference Link:       true
+Suppress Pagination Header:   true
+Fields:                       number,opened_by
+Limit:                        10
+Query Category:               hardware
+
+=== Detailed Description
+This handler allows the generic retrieval of a ServiceNow object when given a
+table and a query. Using the ServiceNow REST API and basic authentication, a URL
+is built up to retrieve records from a table. If that REST call successfully finds 
+records, a JSON representation of the objects will be returned as handler results.

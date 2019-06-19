@@ -1,0 +1,111 @@
+== ServiceNow Change Retrieve
+	This handler allows you to retrieve an incident for Service Now
+
+=== Parameters
+	[Retrieve Change By]
+		The field you would like to use to single out result
+	[Query Value]
+		The value for the field you are using to find change request
+
+=== Results
+This handler returns every filed as a result relating to a single incident in
+xml form.
+
+[active]
+[activity_due]
+[approval]
+[approval_history]
+[approval_set]
+[assigned_to]
+[assignment_group]
+[backout_plan]
+[business_duration]
+[cab_date]
+[cab_recommendation]
+[calendar_duration]
+[category]
+[change_plan]
+[ci_class]
+[close_notes]
+[closed_at]
+[closed_by]
+[cmdb_ci]
+[comments]
+[comments_and_work_notes]
+[company]
+[conflict_status]
+[contact_type]
+[correlation_display]
+[correlation_id]
+[delivery_plan]
+[delivery_task]
+[description]
+[due_date]
+[end_date]
+[escalation]
+[expected_start]
+[follow_up]
+[group_list]
+[impact]
+[implementation_plan]
+[justification]
+[knowledge]
+[location]
+[made_sla]
+[number]
+[opened_at]
+[opened_by]
+[order]
+[outside_maintenance_schedule]
+[parent]
+[phase]
+[phase_state]
+[priority]
+[production_system]
+[proposed_change]
+[reason]
+[reassignment_count]
+[requested_by]
+[requested_by_date]
+[review_comments]
+[review_date]
+[review_status]
+[risk]
+[scope]
+[short_description]
+[skills]
+[sla_due]
+[start_date]
+[state]
+[sys_class_name]
+[sys_created_by]
+[sys_created_on]
+[sys_domain]
+[sys_id]
+[sys_mod_count]
+[sys_updated_by]
+[sys_updated_on]
+[test_plan]
+[time_worked]
+[type]
+[upon_approval]
+[upon_reject]
+[urgency]
+[user_input]
+[watch_list]
+[work_end]
+[work_notes]
+[work_notes_list]
+[work_start]
+
+==== Sample Configuration
+	Retrieve Change By: number
+	Query Value : INC0010074
+
+=== Detailed Description
+	This handler allows you to retrieve a change request from service now. You can
+	use either the sys_id or number of the change request to find retrieve it.
+
+=== Info
+	The server field is for your instance of service now. It is whatever
+	subdomain you belong to i.e. server.service-now.com

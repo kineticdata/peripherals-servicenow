@@ -1,0 +1,34 @@
+== ServiceNow Group Update
+    This handler allows you to update a user group for Service Now
+
+=== Parameters
+    [Sys Id]
+        The sys_id of the the user group to be updated.
+    [Name]
+        The name of the user group to be updated.
+    [Group Email]
+        The group email address of the user group to be updated.
+    [Manager]
+        The manager id of the user group to be updated.
+    [Parent]
+        The parent id of the user group to be updated.
+    [Description]
+        The description of the user group to be updated.
+
+=== Results
+    No results are returned for this handler.
+
+==== Sample Configuration
+    Sys Id:           vt53580t0s0s0s6501ss37u294s2ts6t
+    Name:             Sample Name
+    Group Email:      joe.user@acme.com
+    Manager:          9ww1t13vu6112271007x9v0wxvt69uv0
+    Parent:           287ww6xws9xw198100svs7950v0t1t73
+    Description:      Sample Description
+
+=== Detailed Description
+    This handler allows you to update a uer group for service now. It uses the
+    unique sys_id to determine what group to update and then takes the input
+    parameters and passes them in a REST call to Service Now to update the group.
+    Any fields left empty will not be updated. An error will be thrown if the
+    sys_id does not correspond to a valid user group.

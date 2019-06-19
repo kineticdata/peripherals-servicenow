@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<taskDefinition id="servicenow_object_query_retrieve" name="ServiceNow Object Query Retrieve" schema_version="1.0" version="1">
+    <author>support@kineticdata.com</author>
+    <description>Generically retrieves an object from a ServiceNow table when given a table name and an id</description>
+    <helpurl></helpurl>
+    <visible>true</visible>
+    <deferrable>false</deferrable>
+    <parameters>
+        <parameter id="error_handling" label="Error Handling" required="true"
+          tooltip="Determine what to return if an error is encountered." menu="Error Message,Raise Error">Error Message</parameter>
+        <parameter id="table" label="Table" required="true"
+          tooltip="The name of the table to retrieve info from (ie. change_request,incident, task,etc)."/>
+        <parameter id="query" label="Query" required="true"
+          tooltip="The query to retrieve objects. Use a '^' to seperate parameters."/>
+        <parameter id="display_value" label="Display Value" required="false"
+          tooltip="Return field display values (true), actual values (false), or both (all) (default: false)."/>
+        <parameter id="exclude_ref_link" label="Exclude Reference Link" required="false"
+          tooltip="True to exclude Table API links for reference fields (default: false)."/>
+        <parameter id="suppress_pag_header" label="Suppress Pagination Header" required="false"
+          tooltip="True to supress pagination header (default: false)."/>
+        <parameter id="fields" label="Fields" required="false"
+          tooltip="A comma-separated list of fields to return in the response."/>
+        <parameter id="limit" label="Limit" required="false"
+          tooltip="The maximum number of results returned per page (default: 10,000)."/>
+        <parameter id="query_category" label="Query Category" required="false"
+          tooltip="Name of the query category (read replica category) to use for queries."/>
+    </parameters>
+    <handler name="servicenow_object_query_retrieve" version="1">
+        <infos>
+            <info name="username">&lt;%= @info['username'] %&gt;</info>
+            <info name="password">&lt;%= @info['password'] %&gt;</info>
+            <info name="server">&lt;%= @info['server'] %&gt;</info>
+            <info name="enable_debug_logging">&lt;%= @info['enable_debug_logging'] %&gt;</info>
+        </infos>
+        <parameters>
+            <parameter name="table">&lt;%= @parameters['table'] %&gt;</parameter>
+            <parameter name="query">&lt;%= @parameters['query'] %&gt;</parameter>
+            <parameter name="display_value">&lt;%= @parameters['display_value'] %&gt;</parameter>
+            <parameter name="exclude_ref_link">&lt;%= @parameters['exclude_ref_link'] %&gt;</parameter>
+            <parameter name="suppress_pag_header">&lt;%= @parameters['suppress_pag_header'] %&gt;</parameter>
+            <parameter name="fields">&lt;%= @parameters['fields'] %&gt;</parameter>
+            <parameter name="limit">&lt;%= @parameters['limit'] %&gt;</parameter>
+            <parameter name="query_category">&lt;%= @parameters['query_category'] %&gt;</parameter>
+        </parameters>
+    </handler>
+    <results format="xml">
+        <result name="Handler Error Message"/>
+        <result name="object_json"></result>
+    </results>
+</taskDefinition>

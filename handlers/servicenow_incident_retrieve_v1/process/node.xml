@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<taskDefinition id="servicenow_incident_retrieve" name="ServiceNow Incident Retrieve" schema_version="1.0" version="1">
+	<author>support@kineticdata.com</author>
+	<description>ServiceNow, retrieve an incident.</description>
+	<helpurl></helpurl>
+	<visible>true</visible>
+	<deferrable>false</deferrable>
+	<parameters>
+		<parameter id="query_type" label="Retrieve Incident By" required="true" tooltip="Query by this parameter" menu="sys_id,number" />
+		<parameter id="query" label="Query Value" required="true" tooltip="The unique value belonging to the query type" />
+	</parameters>
+	<handler name="servicenow_incident_retrieve" version="1">
+		<infos>
+			<info name="username">&lt;%= @info['username'] %&gt;</info>
+			<info name="password">&lt;%= @info['password'] %&gt;</info>
+			<info name="server">&lt;%= @info['server'] %&gt;</info>
+		</infos>
+		<parameters>
+			<parameter name="query_type">&lt;%= @parameters['query_type'] %&gt;</parameter>
+			<parameter name="query">&lt;%= @parameters['query'] %&gt;</parameter>
+		</parameters>
+	</handler>
+	<results format="xml">
+		<result name="active"></result>
+		<result name="activity_due"></result>
+		<result name="approval"></result>
+		<result name="approval_history"></result>
+		<result name="approval_set"></result>
+		<result name="assigned_to"></result>
+		<result name="assignment_group"></result>
+		<result name="business_duration"></result>
+		<result name="business_stc"></result>
+		<result name="calendar_duration"></result>
+		<result name="calendar_stc"></result>
+		<result name="caller_id"></result>
+		<result name="category"></result>
+		<result name="caused_by"></result>
+		<result name="child_incidents"></result>
+		<result name="close_code"></result>
+		<result name="close_notes"></result>
+		<result name="closed_at"></result>
+		<result name="closed_by"></result>
+		<result name="cmdb_ci"></result>
+		<result name="comments"></result>
+		<result name="comments_and_work_notes"></result>
+		<result name="company"></result>
+		<result name="contact_type"></result>
+		<result name="correlation_display"></result>
+		<result name="correlation_id"></result>
+		<result name="delivery_plan"></result>
+		<result name="delivery_task"></result>
+		<result name="description"></result>
+		<result name="due_date"></result>
+		<result name="escalation"></result>
+		<result name="expected_start"></result>
+		<result name="follow_up"></result>
+		<result name="group_list"></result>
+		<result name="impact"></result>
+		<result name="incident_state"></result>
+		<result name="knowledge"></result>
+		<result name="location"></result>
+		<result name="made_sla"></result>
+		<result name="notify"></result>
+		<result name="number"></result>
+		<result name="opened_at"></result>
+		<result name="opened_by"></result>
+		<result name="order"></result>
+		<result name="parent"></result>
+		<result name="parent_incident"></result>
+		<result name="priority"></result>
+		<result name="problem_id"></result>
+		<result name="reassignment_count"></result>
+		<result name="reopen_count"></result>
+		<result name="resolved_at"></result>
+		<result name="resolved_by"></result>
+		<result name="rfc"></result>
+		<result name="severity"></result>
+		<result name="short_description"></result>
+		<result name="skills"></result>
+		<result name="sla_due"></result>
+		<result name="state"></result>
+		<result name="subcategory"></result>
+		<result name="sys_class_name"></result>
+		<result name="sys_created_by"></result>
+		<result name="sys_created_on"></result>
+		<result name="sys_domain"></result>
+		<result name="sys_id"></result>
+		<result name="sys_mod_count"></result>
+		<result name="sys_updated_by"></result>
+		<result name="sys_updated_on"></result>
+		<result name="time_worked"></result>
+		<result name="upon_approval"></result>
+		<result name="upon_reject"></result>
+		<result name="urgency"></result>
+		<result name="user_input"></result>
+		<result name="watch_list"></result>
+		<result name="work_end"></result>
+		<result name="work_notes"></result>
+		<result name="work_notes_list"></result>
+		<result name="work_start"></result>
+	</results>
+</taskDefinition>

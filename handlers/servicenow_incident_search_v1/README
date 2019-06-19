@@ -1,0 +1,32 @@
+== ServiceNow Incident Search
+  This handler searches for incidents in Service Now and returns any that meet
+  your query in JSON format.
+
+=== Parameters
+  [Query XML]
+    The query string for what incidents should be returned in xml format.
+
+=== Results
+  [XML]
+    All sys_id's that match the query formatted in XML
+
+==== Sample Configuration
+  Query XML :  <__encoded_query>sys_created_on > 2014-01-01</__encoded_query>
+               <short_description>Issue with email</short_description>
+
+=== Detailed Description
+  This handler searches for incidents in Serice Now and returns any that meet
+  your query in JSON format. The return json uses the sys_id as the key and the
+  value is another JSON map with all the information about the incident. To
+  query for an incident, you need to provide the query in xml. The handler uses
+  the getRecords call from the Service Now SOAP API, so the parameter provided
+  just needs to specify what to look for in incident fields. For example, if you
+  are searching for a date (or anything that can't be qualified by a direct
+  equality statement), you can use the <__encoded_query> parameter, which can be
+  used for any general query statements. For example, you could search for any
+  incidents that were created after a certain time
+  (ie. <__encoded_query>sys_created_on > 2014-04-15</__encoded_query>). For
+  everything else, you can make the search with the xml tag beings the field
+  that you want to search. For example, if you want to match a incident number
+  or short description, you would search for <number>INC000000001</number> or
+  <short_description>this is a short description</short_description>.

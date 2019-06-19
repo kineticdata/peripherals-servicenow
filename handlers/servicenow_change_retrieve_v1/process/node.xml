@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<taskDefinition id="servicenow_change_retrieve" name="ServiceNow Change Retrieve" schema_version="1.0" version="1">
+	<author>support@kineticdata.com</author>
+	<description>ServiceNow, retrieve a change request.</description>
+	<helpurl></helpurl>
+	<visible>true</visible>
+	<deferrable>false</deferrable>
+	<parameters>
+		<parameter id="query_type" label="Retrieve Change By" required="true" tooltip="Query change requests by this parameter" menu="sys_id,number" />
+		<parameter id="query" label="Query Value" required="true" tooltip="The unique value belonging to the type of query" />
+	</parameters>
+	<handler name="servicenow_change_retrieve" version="1">
+		<infos>
+			<info name="username">&lt;%= @info['username'] %&gt;</info>
+			<info name="password">&lt;%= @info['password'] %&gt;</info>
+			<info name="server">&lt;%= @info['server'] %&gt;</info>
+		</infos>
+		<parameters>
+			<parameter name="query_type">&lt;%= @parameters['query_type'] %&gt;</parameter>
+			<parameter name="query">&lt;%= @parameters['query'] %&gt;</parameter>
+		</parameters>
+	</handler>
+	<results format="xml">
+		<result name="active" />
+		<result name="activity_due" />
+		<result name="approval" />
+		<result name="approval_history" />
+		<result name="approval_set" />
+		<result name="assigned_to" />
+		<result name="assignment_group" />
+		<result name="backout_plan" />
+		<result name="business_duration" />
+		<result name="cab_date" />
+		<result name="cab_recommendation" />
+		<result name="calendar_duration" />
+		<result name="category" />
+		<result name="change_plan" />
+		<result name="ci_class" />
+		<result name="close_notes" />
+		<result name="closed_at" />
+		<result name="closed_by" />
+		<result name="cmdb_ci" />
+		<result name="comments" />
+		<result name="comments_and_work_notes" />
+		<result name="company" />
+		<result name="conflict_status" />
+		<result name="contact_type" />
+		<result name="correlation_display" />
+		<result name="correlation_id" />
+		<result name="delivery_plan" />
+		<result name="delivery_task" />
+		<result name="description" />
+		<result name="due_date" />
+		<result name="end_date" />
+		<result name="escalation" />
+		<result name="expected_start" />
+		<result name="follow_up" />
+		<result name="group_list" />
+		<result name="impact" />
+		<result name="implementation_plan" />
+		<result name="justification" />
+		<result name="knowledge" />
+		<result name="location" />
+		<result name="made_sla" />
+		<result name="number" />
+		<result name="opened_at" />
+		<result name="opened_by" />
+		<result name="order" />
+		<result name="outside_maintenance_schedule" />
+		<result name="parent" />
+		<result name="phase" />
+		<result name="phase_state" />
+		<result name="priority" />
+		<result name="production_system" />
+		<result name="proposed_change" />
+		<result name="reason" />
+		<result name="reassignment_count" />
+		<result name="requested_by" />
+		<result name="requested_by_date" />
+		<result name="review_comments" />
+		<result name="review_date" />
+		<result name="review_status" />
+		<result name="risk" />
+		<result name="scope" />
+		<result name="short_description" />
+		<result name="skills" />
+		<result name="sla_due" />
+		<result name="start_date" />
+		<result name="state" />
+		<result name="sys_class_name" />
+		<result name="sys_created_by" />
+		<result name="sys_created_on" />
+		<result name="sys_domain" />
+		<result name="sys_id" />
+		<result name="sys_mod_count" />
+		<result name="sys_updated_by" />
+		<result name="sys_updated_on" />
+		<result name="test_plan" />
+		<result name="time_worked" />
+		<result name="type" />
+		<result name="upon_approval" />
+		<result name="upon_reject" />
+		<result name="urgency" />
+		<result name="user_input" />
+		<result name="watch_list" />
+		<result name="work_end" />
+		<result name="work_notes" />
+		<result name="work_notes_list" />
+		<result name="work_start" />
+	</results>
+</taskDefinition>

@@ -1,0 +1,101 @@
+== ServiceNow Incident Retrieve V1
+	This handler allows you to retrieve an incident for Service Now
+
+=== Parameters
+	[Retrieve Incident By]
+		What field you would like to use as a unique id
+	[Query Value]
+		The value for the unique id
+
+=== Results
+This handler returns every filed as a result relating to a single incident in xml form.
+
+[active]
+[activity_due]
+[approval]
+[approval_history]
+[approval_set]
+[assigned_to]
+[assignment_group]
+[business_duration]
+[business_stc]
+[calendar_duration]
+[calendar_stc]
+[caller_id]
+[category]
+[caused_by]
+[child_incidents]
+[close_code]
+[close_notes]
+[closed_at]
+[closed_by]
+[cmdb_ci]
+[comments]
+[comments_and_work_notes]
+[company]
+[contact_type]
+[correlation_display]
+[correlation_id]
+[delivery_plan]
+[delivery_task]
+[description]
+[due_date]
+[escalation]
+[expected_start]
+[follow_up]
+[group_list]
+[impact]
+[incident_state]
+[knowledge]
+[location]
+[made_sla]
+[notify]
+[number]
+[opened_at]
+[opened_by]
+[order]
+[parent]
+[parent_incident]
+[priority]
+[problem_id]
+[reassignment_count]
+[reopen_count]
+[resolved_at]
+[resolved_by]
+[rfc]
+[severity]
+[short_description]
+[skills]
+[sla_due]
+[state]
+[subcategory]
+[sys_class_name]
+[sys_created_by]
+[sys_created_on]
+[sys_domain]
+[sys_id]
+[sys_mod_count]
+[sys_updated_by]
+[sys_updated_on]
+[time_worked]
+[upon_approval]
+[upon_reject]
+[urgency]
+[user_input]
+[watch_list]
+[work_end]
+[work_notes]
+[work_notes_list]
+[work_start]
+
+==== Sample Configuration
+	Retrieve Incident By : number
+	Query Value : INC0010017
+
+=== Detailed Description
+	This handler allows you to retrieve a new incident from service now.
+	You can retrieve the results by either the sys_id or number of the incident.
+
+=== Info
+	The server field is for your instance of service now. It is whatever
+	subdomain you belong to i.e. server.service-now.com

@@ -1,0 +1,28 @@
+== ServiceNow Object Delete
+  Generically deletes an object from a ServiceNow table when given a table
+  name and an id
+
+=== Parameters
+  [Error Handling]
+    Determine what to return if an error is encountered.
+  [Table]
+    The name of the table to delete an object from (ie. change_request,incident,
+    task,etc).
+  [Id]
+    The id of the object to delete.
+
+=== Results
+  [Handler Error Message]
+    Error message if an error was encountered and Error Handling is set to "Error Message".
+
+==== Sample Configuration
+  Error Handling:                 Raise Error
+  Table:                          incident
+  Id:                             85071a1347c12200e0ef563dbb9a71c1
+
+=== Detailed Description
+This handler allows the generic deletion of a ServiceNow object when given a
+table and an id. Using the ServiceNow REST API and basic authentication, a URL
+is built up to delete an object from a table by its sys_id. If that REST call is
+successful, the handler execution will complete and an empty result set will be
+returned.

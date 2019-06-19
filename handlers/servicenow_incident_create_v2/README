@@ -1,0 +1,49 @@
+== ServiceNow Incident Create V1
+	This handler allows you to create an incident for Service Now
+
+=== Parameters
+	[Category]
+		A menu of available categories
+	[Short Description]
+		A short description used to identify the incident.
+	[Impact Level]
+		The level of severity of the problem.
+	[Urgency Level]
+		How crucial it is to take care of the problem in time.
+	[Contact Type]
+		How the incident was reported
+	[Caller Id]
+		Id number of the user who reported the problem
+	[Location]
+		The location of the user
+	[Configuration Item Id]
+		The id of the configuration item the incident relates to
+	[Assignment Group Id]
+		Id number of the group you wish to assign this incident to
+	[Assigned To Id]
+		The id number of the person you wish to assign this to
+
+=== Results
+	[Incident Number]
+		Number of the incident that was created
+	[System Id]
+		sys_id of the incident that was created
+
+==== Sample Configuration
+	Category : (By Menu) Hardaware
+	Short Description: Overheating CPU
+	Impact Level : (By Menu) 1 - High
+	Urgency Level : (By Menu) 1 - High
+	Contact Type: Email
+	Caller Id : <%=@results['servicenow_retrieve_sys_user_v1_1']['sys_id']%>
+	Location : <%=@results['servicenow_retrieve_sys_user_v1_1']['location']%>
+	Configuration Item Id: 00a96c0d3790200044e0bfc8bcbe5db4
+	Assignment Group Id: 5d000ca93790200044e0bfc8bcbe5d8c
+	Assigned To Id: 04a9a80d3790200044e0bfc8bcbe5d1b
+
+=== Detailed Description
+	This handler allows you to create a new incident for service now.
+
+=== Info
+	The server field is for your instance of service now. It is whatever
+	subdomain you belong to i.e. server.service-now.com

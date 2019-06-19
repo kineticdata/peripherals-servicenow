@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<taskDefinition id="servicenow_user_create" name="ServiceNow User Create" schema_version="1.0" version="1">
+	<author>support@kineticdata.com</author>
+	<description>ServiceNow, create a new user.</description>
+	<helpurl></helpurl>
+	<visible>true</visible>
+	<deferrable>false</deferrable>
+	<parameters>
+		<parameter id="user_name" label="User Id" required="false" tooltip="Username of the person" />
+		<parameter id="first_name" label="First Name" required="true" tooltip="First name of the user" />
+		<parameter id="last_name" label="Last Name" required="true" tooltip="Last name of the user" />
+		<parameter id="title" label="Title" required="false" tooltip="Title of the user" />
+		<parameter id="department_id" label="Department Id" required="false" tooltip="Id of the department" />
+		<parameter id="password" label="Password" required="false" tooltip="password for the user if needed" />
+		<parameter id="password_needs_reset" label="Password Needs Reset" required="true" menu="yes,no" tooltip="Select if you would like to require the user to reset their password">no</parameter>
+		<parameter id="locked_out" label="Locked Out" menu="yes,no" required="true" tooltip="Select this if you would like the user to be locked out at first">no</parameter>
+		<parameter id="active" label="Active" menu="yes,no" required="true" tooltip="Select this if you would like the user to be active immediately" />
+		<parameter id="date_format" label="Date Format" required="true" menu="MM-dd-yyyy,dd/MM/yyyy,dd-MM-yyyy,dd.MM.yyyy,yyyy-MM-dd" tooltip="How dates will appear to the user">yyyy-MM-dd</parameter>
+		<parameter id="email" label="Email" required="false" tooltip="Email address of the user" />
+		<parameter id="time_zone" label="Time Zone" required="true" tooltip="Timezone used by this user" menu="System,Canada/Atlantic,Canada/Central,Canada/Eastern,Canada/Mountain,Canada/Pacific,Europe/Amsterdam,Europe/Berlin,Europe/Brussels,Europe/Copenhagen,Europe/Dublin,Europe/London,Europe/Madrid,Europe/Paris,Europe/Rome,Europe/Stockholm,Europe/Zurich,GMT,Hongkong,US/Arizona,US/Eastern,US/Hawaii,US/Mountain,US/Pacific">System</parameter>
+		<parameter id="phone" label="Business Phone" required="false" tooltip="Primary business phone number for the user" />
+		<parameter id="mobile_phone" label="Mobile Phone" required="false" tooltip="Mobile/Cell phone number of the user" />
+	</parameters>
+	<handler name="servicenow_user_create" version="1">
+		<infos>
+			<info name="username">&lt;%= @info['username'] %&gt;</info>
+			<info name="password">&lt;%= @info['password'] %&gt;</info>
+			<info name="server">&lt;%= @info['server'] %&gt;</info>
+      <info name="enable_debug_logging">&lt;%= @info['enable_debug_logging'] %&gt;</info>
+		</infos>
+		<parameters>
+			<parameter name="user_name">&lt;%= @parameters['user_name'] %&gt;</parameter>
+			<parameter name="first_name">&lt;%= @parameters['first_name'] %&gt;</parameter>
+			<parameter name="last_name">&lt;%= @parameters['last_name'] %&gt;</parameter>
+			<parameter name="title">&lt;%= @parameters['title'] %&gt;</parameter>
+			<parameter name="department_id">&lt;%= @parameters['department_id'] %&gt;</parameter>
+			<parameter name="password">&lt;%= @parameters['password'] %&gt;</parameter>
+			<parameter name="password_needs_reset">&lt;%= @parameters['password_needs_reset'] %&gt;</parameter>
+			<parameter name="locked_out">&lt;%= @parameters['locked_out'] %&gt;</parameter>
+			<parameter name="active">&lt;%= @parameters['active'] %&gt;</parameter>
+			<parameter name="date_format">&lt;%= @parameters['date_format'] %&gt;</parameter>
+			<parameter name="email">&lt;%= @parameters['email'] %&gt;</parameter>
+			<parameter name="time_zone">&lt;%= @parameters['time_zone'] %&gt;</parameter>
+			<parameter name="phone">&lt;%= @parameters['phone'] %&gt;</parameter>
+			<parameter name="mobile_phone">&lt;%= @parameters['mobile_phone'] %&gt;</parameter>
+		</parameters>
+	</handler>
+	<results format="xml">
+	    <result name="Sys Id" />
+	</results>
+</taskDefinition>

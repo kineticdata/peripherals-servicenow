@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<taskDefinition id="servicenow_group_update" name="ServiceNow Group Update" schema_version="1.0" version="1">
+	<author>support@kineticdata.com</author>
+	<description>Updates an existing Service Now user group.</description>
+	<helpurl></helpurl>
+	<visible>true</visible>
+	<deferrable>false</deferrable>
+	<parameters>
+        <parameter id="sys_id" label="Sys Id" required="true" tooltip="The sys_id of the user group you want to update."/>
+        <parameter id="name" label="Name" required="false" tooltip="The new name of the user group."/>
+        <parameter id="group_email" label="Group Email" required="false" tooltip="The new group email of the user group." />
+        <parameter id="manager" label="Manager" required="false" tooltip="The new manager id of the user group."/>
+        <parameter id="parent" label="Parent" required="false" tooltip="The new parent id of the user group." />
+        <parameter id="description" label="Description" required="false" tooltip="The new description of the user group."/>
+    </parameters>
+    <handler name="servicenow_group_update" version="1">
+        <infos>
+            <info name="username">&lt;%= @info['username'] %&gt;</info>
+            <info name="password">&lt;%= @info['password'] %&gt;</info>
+            <info name="server">&lt;%= @info['server'] %&gt;</info>
+            <info name="enable_debug_logging">&lt;%= @info['enable_debug_logging'] %&gt;</info>
+        </infos>
+        <parameters>
+            <parameter name="sys_id">&lt;%= @parameters['sys_id'] %&gt;</parameter>
+            <parameter name="name">&lt;%= @parameters['name'] %&gt;</parameter>
+            <parameter name="group_email">&lt;%= @parameters['group_email'] %&gt;</parameter>
+            <parameter name="manager">&lt;%= @parameters['manager'] %&gt;</parameter>
+            <parameter name="parent">&lt;%= @parameters['parent'] %&gt;</parameter>
+            <parameter name="description">&lt;%= @parameters['description'] %&gt;</parameter>
+        </parameters>
+    </handler>
+    <results format="xml"/>
+</taskDefinition>

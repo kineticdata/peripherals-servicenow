@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<results>
+    <result name="active" type="Regexp">.+</result>
+    <result name="cost_center" type="Regexp">.+</result>
+    <result name="default_assignee" type="Regexp">.+</result>
+    <result name="description" type="Regexp">.+</result>
+    <result name="email" type="Regexp">.+</result>
+    <result name="exclude_manager" type="Regexp">.+</result>
+    <result name="include_members" type="Regexp">.+</result>
+    <result name="manager" type="Regexp">.+</result>
+    <result name="name" type="Regexp">.+</result>
+    <result name="parent" type="Regexp">.+</result>
+    <result name="roles" type="Regexp">.+</result>
+    <result name="source" type="Regexp">.+</result>
+    <result name="sys_created_by" type="Regexp">.+</result>
+    <result name="sys_created_on" type="Regexp">.+</result>
+    <result name="sys_id" type="Regexp">.+</result>
+    <result name="sys_mod_count" type="Regexp">.+</result>
+    <result name="sys_updated_by" type="Regexp">.+</result>
+    <result name="sys_updated_on" type="Regexp">.+</result>
+    <result name="type" type="Regexp">.+</result>
+</results>

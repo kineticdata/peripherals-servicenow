@@ -1,0 +1,51 @@
+== ServiceNow Change Create
+	This handler allows you to create change request for Service Now
+
+=== Parameters
+	[Number]
+		Change request number only if you want to specify to certain number
+	[Requested By Id]
+		sys_id value of the user who requested the change request
+	[Category]
+		Category of the change request
+	[Configuration Item Id]
+		The sys_id of the involved configuration item
+	[Priority]
+		Priority level of the change request
+	[Impact]
+		Impact level of the configuration item
+	[Short Description
+		Short description of the change request, appears in main table
+	[Description]
+		Full description of the change request
+	[Approval]
+		Approval level for this change request
+	[Type]
+		Type of operation required
+	[Assignment Group Id]
+		sys_id of the group to assign this to
+	[Assigned To Id]
+		sys_id of the user to assign this to
+
+=== Results
+[sys_id]
+  The unique id representing the new change request
+
+==== Sample Configuration
+	Number :
+	Requested By Id : <%=@results['servicenow_user_retrieve_v1']['sys_id']%>
+	Category : Software
+	Configuration Item Id : 04a96c0d3790200044e0bfc8bcbe5db3
+	Priority : 2 - High
+	Risk : Very High
+	Impact : 2 - Medium
+	Short Description : Database write error
+	Description : Database write error when updating user
+	Approval : Approved
+	Type : Emergency
+	Assignment Group Id : <%=@results['servicenow_group_retrieve_v1']['sys_id']%>
+	Assigned To Id : <%=@results['servicenow_user_retrieve_v1']['sys_id']%>
+
+=== Detailed Description
+	This handler allows you to create a new change request on Service Now. It takes the input
+	parameters and then passes them in a REST call to Service Now to create the change request.

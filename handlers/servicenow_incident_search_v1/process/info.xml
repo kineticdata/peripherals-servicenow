@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<taskInfo version="1.0">
+  <info name="username" description="Username/Email of target user." />
+  <info type="encrypted" name="password" description="Password of the user." />
+  <info name="instance_url" description="The url for your Service Now instance (ie. https://sandbox.service-now.com/)." />
+</taskInfo>
