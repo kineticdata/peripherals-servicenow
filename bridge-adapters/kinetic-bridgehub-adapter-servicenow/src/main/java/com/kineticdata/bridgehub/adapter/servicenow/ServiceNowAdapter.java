@@ -242,7 +242,15 @@ public class ServiceNowAdapter implements BridgeAdapter {
         }
 
         Map<String,String> metadata = BridgeUtils.normalizePaginationMetadata(request.getMetadata());
-
+        
+        int pageSize = 1;
+        try {
+            pageSize = Integer.parseInt(metadata.get("pageSize").trim());
+            pageSize = pageSize > 0 && pageSize <= 1000 ? pageSize : 1000;
+        } catch (NumberFormatException e) {
+            logger.error("pageSize metadata was not an integer. " + e);
+        }
+        
         // Creating a order by string to add to the jql query.
         List<String> orderList = new ArrayList();
         String order = new String();
@@ -270,7 +278,7 @@ public class ServiceNowAdapter implements BridgeAdapter {
         }
 
         queryBuilder.append(String.format("%s/api/now/v1/table/%s?sysparm_fields=%s&sysparm_query=%s%s", this.instance, structure, joinedFields, URLEncoder.encode(query), URLEncoder.encode(order)));
-        queryBuilder.append("&sysparm_limit=").append(metadata.get("pageSize"));
+        queryBuilder.append("&sysparm_limit=").append(pageSize);
         queryBuilder.append("&sysparm_offset=").append(metadata.get("offset"));
 
         HttpClient client = HttpClients.createDefault();
