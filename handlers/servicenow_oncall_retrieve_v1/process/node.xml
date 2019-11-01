@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<taskDefinition id="servicenow_oncall_retrieve" name="ServiceNow Oncall Retrieve" schema_version="1.0" version="1">
+    <author>support@kineticdata.com</author>
+    <description>Generically retrieves an object from a ServiceNow table when given a table name and an id</description>
+    <helpurl></helpurl>
+    <visible>true</visible>
+    <deferrable>false</deferrable>
+    <parameters>
+        <parameter id="error_handling" label="Error Handling" required="true"
+          tooltip="Determine what to return if an error is encountered." menu="Error Message,Raise Error">Error Message</parameter>
+        <parameter id="api_route" label="API Route" required="true"
+          tooltip="The name of the OnCall API route.  Default: whoisoncall">whoisoncall</parameter>
+        <parameter id="api_parameters" label="api_parameters" required="true"
+          tooltip="API parameters, values must be encoded."/>
+    </parameters>
+    <handler name="servicenow_oncall_retrieve" version="1">
+        <infos>
+            <info name="username">&lt;%= @info['username'] %&gt;</info>
+            <info name="password">&lt;%= @info['password'] %&gt;</info>
+            <info name="server">&lt;%= @info['server'] %&gt;</info>
+            <info name="enable_debug_logging">&lt;%= @info['enable_debug_logging'] %&gt;</info>
+        </infos>
+        <parameters>
+            <parameter name="error_handling">&lt;%= @parameters['error_handling'] %&gt;</parameter>
+            <parameter name="api_route">&lt;%= @parameters['api_route'] %&gt;</parameter>
+            <parameter name="api_parameters">&lt;%= @parameters['api_parameters'] %&gt;</parameter>
+        </parameters>
+    </handler>
+    <results format="xml">
+        <result name="Handler Error Message"/>
+        <result name="object_json"></result>
+    </results>
+</taskDefinition>

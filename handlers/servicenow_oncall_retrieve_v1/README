@@ -1,0 +1,28 @@
+== ServiceNow Oncall Retrieve
+  Retrieves oncall information from ServiceNow for a specific group.
+
+=== Parameters
+  [Error Handling]
+    Determine what to return if an error is encountered.
+  [API Route]
+    The name of the OnCall API route.  Default is "whoisoncall".
+  [api_parameters]
+    API Parameters, must be encoded.
+
+=== Results
+  [Handler Error Message]
+    Error message if an error was encountered and Error Handling is set to "Error Message".
+  [object_json]
+    A JSON representation of the returned ServiceNow object
+
+==== Sample Configuration
+Error Handling:               Error Message
+API Route:                    whoisoncall
+api_parameters:               group_ids=12345
+
+=== Detailed Description
+This handler executes a ServiceNow OnCall API call.  Several routes exist in ServiceNow.
+The default value for the API Route is "whoisoncall".  The api_parameters are the encoded
+values that should be send along wth the API call.  For the "whoisoncall" route, the is
+a comma separated list of list of group_ids. If that REST call successfully finds
+a result, a JSON representation of the response will be returned as handler results.
