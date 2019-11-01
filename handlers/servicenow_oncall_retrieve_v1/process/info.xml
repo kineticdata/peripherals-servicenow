@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<taskInfo version="1.0">
+  <info name="username" description="Username/Email of target user." />
+  <info type="encrypted" name="password" description="Password of the user." />
+  <info name="server" description="The subdomain of service now the server belongs to (ie. https://instance.service-now.com)." />
+  <info name="enable_debug_logging" description="Enable debug logging if the value is set to 'Yes'.">No</info>
+</taskInfo>
