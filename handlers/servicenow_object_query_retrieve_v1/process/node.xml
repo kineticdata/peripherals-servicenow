@@ -33,6 +33,8 @@
             <info name="enable_debug_logging">&lt;%= @info['enable_debug_logging'] %&gt;</info>
         </infos>
         <parameters>
+           <parameter name="error_handling">&lt;%= @parameters.has_key?("error_handling") ?
+            @parameters["error_handling"] : "Raise Error" %&gt;</parameter>
             <parameter name="table">&lt;%= @parameters['table'] %&gt;</parameter>
             <parameter name="query">&lt;%= @parameters['query'] %&gt;</parameter>
             <parameter name="display_value">&lt;%= @parameters['display_value'] %&gt;</parameter>
