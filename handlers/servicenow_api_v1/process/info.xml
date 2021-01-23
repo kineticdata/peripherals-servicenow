@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<taskInfo version="1.0">
+  <info name="api_username" description="Username" />
+  <info name="api_password" description="Password" type="encrypted" />
+  <info name="api_location" description="API Location (ie. https://instance.service-now.com)" />
+  <info name="enable_debug_logging" description="True or False">false</info>
+</taskInfo>
