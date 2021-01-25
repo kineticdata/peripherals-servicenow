@@ -1,8 +1,8 @@
 {
   'info' => {
     'api_username' => "kinetic_integration_user",
-    'api_password' => "iMEPYxkmYyMaAgRNTz3ffpup",
-    'api_location' => "https://dev74805.service-now.com",
+    'api_password' => "",
+    'api_location' => "",
     'enable_debug_logging' => 'true'
   },
   'parameters' => {
