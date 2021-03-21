@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<taskDefinition id="servicenow_attachment_create" name="ServiceNow Attachment Create"
+                schema_version="1.0" version="1">
+    <author>support@kineticdata.com</author>
+    <description>
+        Uploads an attachment to ServiceNow
+    </description>
+    <helpurl></helpurl>
+    <visible>false</visible>
+    <deferrable>false</deferrable>
+    <parameters>
+        <parameter id="table_name" required="true" label="Table Name"
+                   tooltip="Name of the table to attach the file to." />
+        <parameter id="table_sys_id" required="true" label="Sys Id"
+                   tooltip="Sys_id of the record in the table specified in table_name that you want to attach the file to." />
+		    <parameter id="attachment_input_type" label="Attachment Input Type" required="true"
+                   tooltip="Choose Field if the input for the attachment info as a Field Name or choose JSON if the input is an attachment's JSON from the Get Attachment Info handler. Note that if Field is specified, the fields entered should only allow one attachment." menu="Field,JSON">Field</parameter>
+        <parameter id="attachment_field" required="false" label="Attachment Field"
+                   tooltip="The Field Name of an attachment question to retrieve an attachment from." dependsOnId="attachment_input_type" dependsOnValue="Field"/>
+        <parameter id="attachment_json" required="false" label="Attachment JSON"
+                   tooltip="The JSON of an attachment object retrieved from the Get Attachment Info handler." dependsOnId="attachment_input_type" dependsOnValue="JSON"/>
+		    <parameter id="submission_id" label="Submission ID" required="true"
+                   tooltip="The id of the CE submission containing the attachment."/>
+    </parameters>
+    <handler name="servicenow_attachment_create" version="1">
+        <infos>
+            <info name="api_location">&lt;%= @info['api_location'] %&gt;</info>
+            <info name="api_username">&lt;%= @info['api_username'] %&gt;</info>
+            <info name="api_password">&lt;%= @info['api_password'] %&gt;</info>
+			      <info name="servicenow_api_location">&lt;%= @info['servicenow_api_location'] %&gt;</info>
+            <info name="servicenow_api_username">&lt;%= @info['servicenow_api_username'] %&gt;</info>
+            <info name="servicenow_api_password">&lt;%= @info['servicenow_api_password'] %&gt;</info>
+			      <info name="enable_debug_logging">&lt;%= @info['enable_debug_logging'] %&gt;</info>
+        </infos>
+        <parameters>
+            <parameter name='table_name'>&lt;%= @parameters['table_name'] %&gt;</parameter>
+            <parameter name='table_sys_id'>&lt;%= @parameters['table_sys_id'] %&gt;</parameter>
+			      <parameter name='attachment_input_type'>&lt;%= @parameters['attachment_input_type'] %&gt;</parameter>
+            <parameter name='attachment_field'>&lt;%= @parameters['attachment_field'] %&gt;</parameter>
+			      <parameter name='attachment_json'>&lt;%= @parameters['attachment_json'] %&gt;</parameter>
+            <parameter name='submission_id'>&lt;%= @parameters['submission_id'] %&gt;</parameter>
+        </parameters>
+    </handler>
+    <results format="xml">
+        <result name="Response Body"/>
+        <result name="Response Code"/>
+        <result name="Handler Error Message"/>
+    </results>
+</taskDefinition>

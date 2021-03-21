@@ -1,0 +1,33 @@
+== ServiceNow Attachment Create
+Uploads an attachment to ServiceNow
+
+=== Parameters
+[Table Name]
+  Name of the table to attach the file to.
+[Sys Id]
+  Sys_id of the record in the table specified in table_name that you want to attach the file to.
+[Attachment Input Type]
+  Choose Field if the input for the attachment info as a Field Name or choose JSON if the input is an attachment's JSON from the Get Attachment Info handler.
+  Note that if Field is specified, the fields entered should only allow one attachment.
+[Attachment Field]
+  The Field Name of an attachment question to retrieve an attachment from.
+[Attachment JSON]
+  The JSON of an attachment object retrieved from the Get Attachment Info handler.
+[Submission ID]
+  The id of the CE submission containing the attachment.
+
+
+==== Sample Configuration
+Table Name::              incident
+Sys Id::                  dc2e1f6d2f762010210651072799b625
+Attachment Input Type::	  Field
+Attachment Field::        Attachments
+Submission ID::				    <%=  @submission['Id'] %>
+
+=== Results
+[Response Code]
+  The returned code from the Rest Call (Example: 200)
+[Response Body]
+  The returned value from the Rest Call (JSON format)
+[Handler Error Message]
+  A message containing a handler error is Error Handling set to 'error message'

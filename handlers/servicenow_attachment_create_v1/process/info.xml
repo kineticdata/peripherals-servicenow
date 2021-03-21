@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<taskInfo version="1.0">
+    <info name="api_location" description="Kinetic Request CE API Web Application">https://server:port/kinetic</info>
+    <info name="api_username" description="Name of user account that has permission to use the API"></info>
+    <info name="api_password" description="Password for the API user" type="encrypted"></info>
+	  <info name="servicenow_api_location"  description="API Location (ie. https://instance.service-now.com)"></info>
+    <info name="servicenow_api_username" description="Name of user account that has permission to use the ServiceNow API"></info>
+    <info name="servicenow_api_password" type="encrypted" description="Password for the ServiceNow API user"></info>
+    <info name="enable_debug_logging" description="Enable debug logging if the value is set to 'Yes'.">No</info>
+</taskInfo>
