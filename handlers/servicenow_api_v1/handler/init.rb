@@ -56,6 +56,9 @@ class ServicenowApiV1
         payload: @body.to_json, \
         headers: {:content_type => @content_type, :accept => @accept}
       response_code = response.code
+      # Test to ensure response is JSON and not an HTML message that also returns a 200 (e.g., Instance Hibernating)
+      # If this errors, it will generate the "There was an error parsing the JSON error" response
+      response_json = JSON.parse(response.body) if !response.nil?
     rescue RestClient::Exception => e
       begin
         error = nil
