@@ -57,8 +57,15 @@ class ServicenowApiV1
         headers: {:content_type => @content_type, :accept => @accept}
       response_code = response.code
       # Test to ensure response is JSON and not an HTML message that also returns a 200 (e.g., Instance Hibernating)
-      # If this errors, it will generate the "There was an error parsing the JSON error" response
-      response_json = JSON.parse(response.body) if !response.nil?
+      # If this errors, it will generate the "There was an error parsing the response" message
+      begin
+        # No response and no and empty body are acceptable
+        if !response.nil? && !response.body.to_s.empty?
+          JSON.parse(response.body)
+        end
+      rescue JSON::ParserError => e
+        raise
+      end
     rescue RestClient::Exception => e
       begin
         error = nil
@@ -75,6 +82,10 @@ class ServicenowApiV1
 
       # Raise the error if instructed to, otherwise will fall through to
       # return an error message.
+      raise if @error_handling == "Raise Error"
+    rescue Exception
+      puts "There was an error parsing the response" if @debug_logging_enabled
+      error_message = e.inspect
       raise if @error_handling == "Raise Error"
     end
 
